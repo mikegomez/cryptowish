@@ -9,9 +9,16 @@ input {
 
 table, td {
     border: 1px solid rgb(3, 253, 23);
+    width: 100%
     /* height: 15px;
     width: 15px */
   }
+
+th {
+    font-size: 14pt;
+    color: white;
+    text-align: center
+}
 
 h1, h2 {
     color: rgb(143, 141, 141);
@@ -141,6 +148,12 @@ h1, h2 {
     margin-top: 15px;
 }
 
+#newrow {
+    width: 150px;
+    height: 25px;
+    font-size: 10pt;
+}
+
 #nightmode {
     /* display: inline-block;
     vertical-align: top;     */
@@ -170,6 +183,7 @@ h1, h2 {
 #newrow {
     margin-left: 15px;
     margin-top: 15px;
+    
 }
 
 .picks1 {
