@@ -3,7 +3,20 @@ body {
     background-image:  url("./assets/images/bitcoin-1813503_1280-720x480.jpg")
 }
 
+input {
+    margin-left: 30px;
+}
 
+table, td {
+    border: 1px solid rgb(3, 253, 23);
+    /* height: 15px;
+    width: 15px */
+  }
+
+h1, h2 {
+    color: rgb(143, 141, 141);
+    text-shadow: -1px 0 rgb(24, 23, 23), 0 1px rgb(44, 43, 43), 1px 0 rgb(19, 18, 18), 0 -1px rgb(185, 185, 184);
+}
 
 #apicontainer {
     display: flex;
@@ -18,9 +31,15 @@ body {
     color: black
 }
 
+#btcdonate {
+    width: 20px;
+    height: 20px;
+}
+
 #button1 {
    width: 50px;
 }
+
 #container2 {
     /* display: flex;
     align-content: center;
@@ -37,6 +56,9 @@ body {
 #container3 {
     /*container holding add new row funtionality    */
     height: auto;
+    display: flex;
+    justify-content: space-evenly;
+
     
 }
 
@@ -45,7 +67,7 @@ body {
 }
 
 #date1 {
-    width: 250px;
+    width: 150px;
 }
 
 #dropdown1 {
@@ -113,11 +135,7 @@ body {
    
 }
 
-table, td {
-    border: 1px solid rgb(3, 253, 23);
-    height: 15px;
-    width: 15px
-  }
+
 #member {
     margin-left: 15px;
     margin-top: 15px;
@@ -147,6 +165,11 @@ table, td {
     
     margin-left:25px;
     color: white;
+}
+
+#newrow {
+    margin-left: 15px;
+    margin-top: 15px;
 }
 
 .picks1 {
@@ -181,20 +204,16 @@ table, td {
     justify-content: space-between;
 }
 
-h1, h2 {
-    color: rgb(143, 141, 141);
-    text-shadow: -1px 0 rgb(24, 23, 23), 0 1px rgb(44, 43, 43), 1px 0 rgb(19, 18, 18), 0 -1px rgb(185, 185, 184);
-
-    /* text-align: center; */
-}
 
 .currencyinput {
     border: 1px inset white;
     background-color: white;
-    color: black
+    color: black;
+
 }
 .currencyinput input {
     border: 0;
+
 }
 
 * {
@@ -203,10 +222,7 @@ h1, h2 {
             box-sizing: border-box;
   }
 
-  #btcdonate {
-      width: 20px;
-      height: 20px;
-  }
+
 
   /* @media screen and (min-width: 600px) {
     body {

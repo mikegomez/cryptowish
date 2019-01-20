@@ -37,62 +37,67 @@
                     <div>Total Cost</div>
                   <div>Profit/Loss</div>
         </div>
-            <div id="space">
-              <form action="" method="POST">
-              <select id="dropdown1">
-                <option value="BTC" selected>Bitcoin</option>
-                <option value="ETH">Ethereum</option>
-                <option value="XRP">XRP</option>
-                <option value="LTC">Litecoin</option>
-                <option value="EOS">EOS</option>
-                <option value="BCH">Bitcoin Cash</option>
-                <option value="XLM">Stellar</option>
-                <option value="ADA">Cardano</option>
-                <option value="TRX">Tron</option>
-              </select>
-              <input type="date" id="date1" value="" name="dateBought" />
-                <input type="text" value="" name="Quantity bought"  class="number1"/>
-                <span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span>
-                  <span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span>
-                    <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span>
-            
-              <!--number (above) if needed -- code min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"-->
-               <!-- add another row option (JS?) -->
-
-               <select id="dropdown2">
-                <option value="BTC" selected>Bitcoin</option>
-                <option value="ETH">Ethereum</option>
-                <option value="XRP">XRP</option>
-                <option value="LTC">Litecoin</option>
-                <option value="EOS">EOS</option>
-                <option value="BCH">Bitcoin Cash</option>
-                <option value="XLM">Stellar</option>
-                <option value="ADA">Cardano</option>
-                <option value="TRX">Tron</option>
-              </select>
-              <input type="date" id="date1" value="" name="dateBought" />
-                <input type="text" value="" name="Quantity bought"  class="number5"/>
-                <span class="currencyinput">$<input type="text"  class="number6" name="Price paid" value="" /></span>
-                  <span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number7"/></span>
-                  <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number8" /></span>
-                  <br />
-              </form>
-          </div>
-        
-          <!-- add new row section -->
-
-        <div id="container3"> 
+        <div id="space">
+              <!-- <form action="" method="POST"> -->
           <table id="myTable">
             <tr>
-              <td>Row1 cell1</td>
-              <td>Row1 cell2</td>
-              <td>Row1 cell1</td>
-              <td>Row1 cell2</td>
-              <td>Row1 cell2</td>
-            </tr>         
-              <button id="newrow" onclick="addnewrow()">Add more coins</button>
-          </table>
+            <td>
+                <select id="dropdown1">
+                <option value="BTC" selected>Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="XRP">XRP</option>
+                <option value="LTC">Litecoin</option>
+                <option value="EOS">EOS</option>
+                <option value="BCH">Bitcoin Cash</option>
+                <option value="XLM">Stellar</option>
+                <option value="ADA">Cardano</option>
+                <option value="TRX">Tron</option>
+              </select>
+            </td>  
+              <td><input type="date" id="date1" value="" name="dateBought" /></td>
+              <td><input type="text" value="" name="Quantity bought"  class="number1"/></td>
+              <td><span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span></td>
+              <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span></td>
+              <td> <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span></td>
+            </tr>
+              <!--number (above) if needed -- code min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"-->
+               <!-- add another row option (JS?) -->
+            <tr>
+            <td><select id="dropdown2">
+                <option value="BTC" selected>Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="XRP">XRP</option>
+                <option value="LTC">Litecoin</option>
+                <option value="EOS">EOS</option>
+                <option value="BCH">Bitcoin Cash</option>
+                <option value="XLM">Stellar</option>
+                <option value="ADA">Cardano</option>
+                <option value="TRX">Tron</option>
+              </select>
+            </td>
+            <td><input type="date" id="date1" value="" name="dateBought" /></td>
+            <td><input type="text" value="" name="Quantity bought"  class="number5"/></td>
+            <td><span class="currencyinput">$<input type="text"  class="number6" name="Price paid" value="" /></span></td>
+            <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number7"/></span></td>
+            <td><span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number8" /></span></td>
+            </tr> <!-- </form> -->
+            </table>
+        
         </div>
+          <!-- add new row section -->
+          <div style="display: block"><button type="submit" id="newrow">Add more coins</button></div>
+         <!-- <div id="container3">  -->
+          <!-- <div><table id="myTable">
+            <tr>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+            </tr>         
+          </table></div>
+        </div> --> -->
 
       <!-- footer -->
 
@@ -111,21 +116,31 @@
           </footer>
       </div>
     </div>
-  
+</div>
   
   <script src="./cryptowishmain.js"></script>
   <script>
 
-function addnewrow() {
-  let table =  document.getElementById('myTable');
-  let row = table.insertRow(0);
-  let cell1 = row.insertCell(0);
-  let cell2 = row.insertCell(1);
-  let cell3 = row.insertCell(2);
-  let cell4 = row.insertCell(3);
-  let cell5 = row.insertCell(4);
+$('#newrow').click(runtask);
 
+function runtask() {
+    $("#myTable > tbody").append("<tr><td>" + '<select id="dropdown2"><option value="BTC" selected>Bitcoin</option><option value="ETH">Ethereum</option><option value="XRP">XRP</option><option value="LTC">Litecoin</option><option value="EOS">EOS</option><option value="BCH">Bitcoin Cash</option><option value="XLM">Stellar</option><option value="ADA">Cardano</option><option value="TRX">Tron</option></select>'  + "</td><td>" + '<input type="date" id="date1" value="" name="dateBought" />' + "</td><td>" + '<input type="text" value="" name="Quantity bought"  class="number1"/>' + "</td><td>" + '<span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span>' + "</td><td>" + '<span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span>' + "</td> + <td>" + '<span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span>' + "</td></tr>");
 }
+// trainData.on("child_added", function(childSnapshot, prevChildKey){
+//   $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + "Every " + frequency + " minutes" + "</td><td>" + nextTrainConverted + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+
+// });
+
+// function addnewrow() {
+//   let table =  document.getElementById('myTable');
+//   let row = table.insertRow(0);
+//   let cell1 = row.insertCell(0);
+//   let cell2 = row.insertCell(1);
+//   let cell3 = row.insertCell(2);
+//   let cell4 = row.insertCell(3);
+//   let cell5 = row.insertCell(4);
+
+// }
 // $(document).ready(function() {
 // var queryURL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=Y50c21e04-ba24-4f94-93a5-7d6ee709d647";
 
