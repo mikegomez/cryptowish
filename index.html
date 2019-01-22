@@ -21,7 +21,7 @@
 
         <div id="apicontainer">
           <!-- <table id="tableName"></table> -->
-            <div>bird brains</div>
+            <!-- <div>bird brains</div> -->
             <!-- <div id="crypto-list"></div>
             <div id="crypto-list1"></div> -->
         </div>
@@ -174,15 +174,17 @@ function runtask() {
 
 //data = JSON.parse('{"event1":{"title":"My birthday","start":"12\/27\/2011 10:20 ","end":"12\/27\/2011 00:00 "},"event2":{"title":"My birthday again","start":"12\/27\/2011 10:20 ","end":"12\/27\/2011 00:00 "}}')
 var ajaxResp = $.ajax({
-  url: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=3&page=1",
+  url: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=5&page=1",
   dataType: "json"
   })
 .done(function(response) {
   $.each(response, function(i, item) {
         $('<tr>').append(
             $('<td>').text(item.id),
-            // $('<td>').text(item.name),
-            // $('<td>').text(item.current_price)
+            $('<tr>'),
+            $('<td>').text(item.current_price),
+            $('<tr>'),
+            $('<td>').text(item.market_cap_rank)
         ).appendTo('#apicontainer');
   console.log("success");
   // console.log(response);
