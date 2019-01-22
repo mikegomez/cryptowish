@@ -20,10 +20,10 @@
         <div id="headline"><h2>Track all your potential Profits and losses without any of the risk!</h2></div>
 
         <div id="apicontainer">
-          <table id="tableName"></table>
+          <!-- <table id="tableName"></table> -->
             <div>bird brains</div>
-            <div id="crypto-list"></div>
-            <div id="crypto-list1"></div>
+            <!-- <div id="crypto-list"></div>
+            <div id="crypto-list1"></div> -->
         </div>
 
       <!-- main container -->
@@ -110,8 +110,8 @@
             <div id="ftbox1">CryptoWish <br /><br />
               <p>CryptoWish is a fun way to track all your 'potential profits and losses without any of the actual risk! That way you can invest and know that you will not lose any money, the only downfall is...you will not also make any money. <br /> We are a fun new website that brings entertainment and investment all into one! </p><p>Good Luck and Happy Trading!!!</p></div>
                 <div id="ftbox2"><p>Donations <br /></p>
-                  <p><img src="./assets/images/bitcoin.webp" id="btcdonate"><a href="https://www.blockchain.com/btc/address/1DbMnJedLp9oyZK83HDjCbWD2CJiAFRqNV" target="blank">1DbMnJedLp9oyZK83HDjCbWD2CJiAFRqNV</a>(BTC)</p>
-                  <p><img src="./assets/images/ethereum.png" id="btcdonate"><a href="https://etherscan.io/address/0x3aa0be33a6e4b2bebe44455fcdb3888f92e1471b" target="blank">0x3aa0be33a6e4b2bebe44455fcdb3888f92e1471b></a></p>
+                  <p><img src="./assets/images/index.png" id="btcdonate"><a href="https://www.blockchain.com/btc/address/1DbMnJedLp9oyZK83HDjCbWD2CJiAFRqNV" target="blank">1DbMnJedLp9oyZK83HDjCbWD2CJiAFRqNV</a>(BTC)</p>
+                  <p><img src="./assets/images/ethereum.png" id="btcdonate"><a href="https://etherscan.io/address/0x3aa0be33a6e4b2bebe44455fcdb3888f92e1471b" target="blank">0x3aa0be33a6e4b2bebe44455fcdb3888f92e1471b</a></p>
                   <p></p><img src="./assets/images/litecoin.png" id="btcdonate"> <a href="https://live.blockcypher.com/ltc/address/LT6GpHQ2c9JkUJwZBniWsWC3WPXYrG1xUv" target="blank">LT6GpHQ2c9JkUJwZBniWsWC3WPXYrG1xUv</a> (LTC)</p>
                   <p></p><img src="./assets/images/bitcoin_cash.png" id="btcdonate"><a href="https://blockchair.com/bitcoin-cash/address/rPVMhWBsfF9iMXYj3aAzJVkPDTFNSyWdKy" target="blank"> rPVMhWBsfF9iMXYj3aAzJVkPDTFNSyWdKy</a> (BCH)</p>
                   <p></p><img src="./assets/images/circle-zcash-color.png" id="btcdonate"><a href="./assets/images/downloadzcash.png" target="blank"> t1UFb7HEmLQHmbXkvvwWTzQssZKiGoLFsku</a> (ZEC)</p>
@@ -167,37 +167,125 @@ function runtask() {
 
       $(document).ready(function() {
   // $.getJSON(url, callback);
-  $.getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=3&page=1', function(json) {
-    tableGenerator('#tableName', json);
-  });
+//   $.getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=3&page=1', function(json) {
+//     tableGenerator('#tableName', json);
+//   });
+// });
+
+//data = JSON.parse('{"event1":{"title":"My birthday","start":"12\/27\/2011 10:20 ","end":"12\/27\/2011 00:00 "},"event2":{"title":"My birthday again","start":"12\/27\/2011 10:20 ","end":"12\/27\/2011 00:00 "}}')
+var ajaxResp = $.ajax({
+  url: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=3&page=1",
+  dataType: "json"
+  })
+.done(function(response) {
+  $.each(response, function(i, item) {
+        $('<tr>').append(
+            $('<td>').text(item.id),
+            // $('<td>').text(item.name),
+            // $('<td>').text(item.current_price)
+        ).appendTo('#apicontainer');
+  console.log("success");
+  // console.log(response);
+  // response.forEach(function(data) { 
+  // var lat = data.id;  
+  // var lng = newsObject.name;
+  // var imgs = newsObject.image;
+  // var lop = newsObject.current_price;
+  // var lap = newsObject.market_cap_rank;
+
+//document.getElementById("apicontainer").innerHTML = lng + ", " + imgs + ", " + lop + ", " + lap;
+
+  }); 
+  
+
+//function tableGenerator(selector, data) { // data is an array
+//    var keys = [];// Get the keys to make the header
+//   // // Add header
+//   var head = '<thead><tr>';
+//    keys.forEach(function(key) {
+//     head += '<th>'+key+'</th>';
+//   });
+//   $(selector).append(head+'</tr></thead>');
+//   var body = '<tbody>';
+//   data.forEach(function(obj) { // For each row
+//     var row = '<tr>';
+//     keys.forEach(function(key) { // For each column
+//       row += '<td>';
+//       if (obj.hasOwnProperty(key)) { // If the obj doesnt has a certain key, add a blank space.
+//         row += obj[key];
+//       // row += "<img src = '" + key.imageLink + "' " + "alt='" + key.altText + "'></td> ";
+//       }
+//        row += '</td>';
+
+//     });
+//     body += row+'<tr>';
+      
+//   })
+//   $(selector).append(body+'</tbody>');
+
+  
+
+
+
+// 
+})
+.fail(function() {
+  console.log("error");
+})
+.always(function() {
+  console.log('complete');
 });
 
-function tableGenerator(selector, data) { // data is an array
-  var keys = Object.keys(Object.assign({}, ...data));// Get the keys to make the header
-  // Add header
-  var head = '<thead><tr>';
-  keys.forEach(function(key) {
-    head += '<th>'+key+'</th>';
-  });
-  $(selector).append(head+'</tr></thead>');
-  var body = '<tbody>';
-  data.forEach(function(obj) { // For each row
-    var row = '<tr>';
-    keys.forEach(function(key) { // For each column
-      row += '<td>';
-      if (obj.hasOwnProperty(key)) { // If the obj doesnt has a certain key, add a blank space.
-        row += obj[key];
-      // row += "<img src = '" + key.imageLink + "' " + "alt='" + key.altText + "'></td> ";
-      }
-       row += '</td>';
+//$.getJSON('', function(json) {
 
-    });
-    body += row+'<tr>';
+//var txt = json;
+//var txt = '[{"id":"bitcoin","symbol":"btc","name":"Bitcoin","image":"https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579","current_price":3538.09814293831,"market_cap":61904059836.1851,"market_cap_rank":1,"total_volume":2813894537.69397,"high_24h":3691.44953776744,"low_24h":3478.65899978562,"price_change_24h":-147.29536189714,"price_change_percentage_24h":-3.99673363791083,"market_cap_change_24h":-2557667670.23369,"market_cap_change_percentage_24h":-3.96773057312032,"circulating_supply":"17492537.0","total_supply":21000000,"ath":19665.3949272416,"ath_change_percentage":-81.9842931309472,"ath_date":"2017-12-16T00:00:00.000Z","roi":null,"last_updated":"2019-01-21T02:50:49.004Z"},{"id":"ripple","symbol":"xrp","name":"XRP","image":"https://assets.coingecko.com/coins/images/44/large/XRP.png?1547033685","current_price":0.316557979953131,"market_cap":12999421329.224,"market_cap_rank":2,"total_volume":391625598.732056,"high_24h":0.328060732010947,"low_24h":0.314203626752192,"price_change_24h":-0.0113004631258068,"price_change_percentage_24h":-3.44675068291167,"market_cap_change_24h":-469350170.369581,"market_cap_change_percentage_24h":-3.48472888105454,"circulating_supply":"41040405095.0","total_supply":100000000000,"ath":3.39845,"ath_change_percentage":-90.6754052238184,"ath_date":"2018-01-07T00:00:00.000Z","roi":null,"last_updated":"2019-01-21T02:51:41.945Z"},{"id":"ethereum","symbol":"eth","name":"Ethereum","image":"https://assets.coingecko.com/coins/images/279/large/ethereum.png?1547034048","current_price":117.224706802741,"market_cap":12252760390.8277,"market_cap_rank":3,"total_volume":1923065073.54984,"high_24h":123.133133001259,"low_24h":116.652255553394,"price_change_24h":-5.51841617373627,"price_change_percentage_24h":-4.49590660553246,"market_cap_change_24h":-572517780.771149,"market_cap_change_percentage_24h":-4.46397944053153,"circulating_supply":"104485184.0928","total_supply":null,"ath":1448.1800861342,"ath_change_percentage":-91.8975752717559,"ath_date":"2018-01-13T00:00:00.000Z","roi":{"times":43.283465221318984,"currency":"btc","percentage":4328.346522131898},"last_updated":"2019-01-21T02:51:44.518Z"}]'
+// var obj = JSON.parse(txt);
+// document.getElementById("apicontainer").innerHTML = obj[0].id + ", " + obj[0].name + ", " + obj[0].current_price + ", " + obj[0].market_cap_rank;
+
+// });
+
+
+// arr = []
+// for(var event in data){
+//     var dataCopy = data[event]
+//     for(key in dataCopy){
+//         if(key == "start" || key == "end"){
+//             // needs more specific method to manipulate date to your needs
+//             dataCopy[key] = new Date(dataCopy[key])
+//         }
+//     }
+//     arr.push(dataCopy)
+// }
+
+// alert( JSON.stringify(arr) )
+
+// function tableGenerator(selector, data) { // data is an array
+//   var keys = Object.keys(Object.assign({}, ...data));// Get the keys to make the header
+//   // Add header
+//   var head = '<thead><tr>';
+//   keys.forEach(function(key) {
+//     head += '<th>'+key+'</th>';
+//   });
+//   $(selector).append(head+'</tr></thead>');
+//   var body = '<tbody>';
+//   data.forEach(function(obj) { // For each row
+//     var row = '<tr>';
+//     keys.forEach(function(key) { // For each column
+//       row += '<td>';
+//       if (obj.hasOwnProperty(key)) { // If the obj doesnt has a certain key, add a blank space.
+//         row += obj[key];
+//       // row += "<img src = '" + key.imageLink + "' " + "alt='" + key.altText + "'></td> ";
+//       }
+//        row += '</td>';
+
+//     });
+//     body += row+'<tr>';
       
-  })
-  $(selector).append(body+'</tbody>');
+//   })
+//   $(selector).append(body+'</tbody>');
 
-  }
+//   }
 
 // coin input data calculations
 $(".number1, .number2").bind('change', function(){
@@ -227,7 +315,7 @@ $(".number5, .number6").bind('change', function(){
 //               document.getElementsByClassName('message')[0].innerHTML=html;
 //             }; 
 
-
+})
 
 
   </script>
