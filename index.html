@@ -180,7 +180,7 @@ var ajaxResp = $.ajax({
 .done(function(response) {
   $.each(response, function(i, item) {
         $('<tr>').append(
-            $('<td>').text(item.id),
+            $('<td>').text(item.name),
             $('<tr>'),
             $('<td>').text(item.current_price),
             $('<tr>'),

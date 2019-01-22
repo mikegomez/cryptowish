@@ -1,6 +1,8 @@
 body {
     /* background-color: rgb(167, 241, 247); */
-    background-image:  url("./assets/images/bitcoin-1813503_1280-720x480.jpg")
+    background-image:  url("./assets/images/bitcoin-1813503_1280-720x480.jpg");
+    background-attachment: fixed;
+
 }
 
 input {
