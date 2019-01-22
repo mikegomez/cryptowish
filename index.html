@@ -29,7 +29,7 @@
       <!-- main container -->
         
         <div id="container2">
-            <div id="header2">My Picks</div>
+            <div id="header2"><h2>My Picks</h2></div>
         <div id="space">
         <table id="myTable">
             <tr>
@@ -39,7 +39,7 @@
                 <th><div>How many coins bought</div></th>
                 <th><div>Coin price at purchase</div></th>
                 <th><div>Total Cost</div></th>
-                <th><div>Profit/Loss</div></th>
+                <!-- <th><div>Profit/Loss</div></th> -->
             </tr>    
         
         
@@ -63,7 +63,7 @@
               <td><input type="text" value="" name="Quantity bought"  class="number1"/></td>
               <td><span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span></td>
               <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span></td>
-              <td> <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span></td>
+              <!-- <td> <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span></td> -->
             </tr>
               <!--number (above) if needed -- code min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"-->
                <!-- add another row option (JS?) -->
@@ -84,8 +84,49 @@
             <td><input type="text" value="" name="Quantity bought"  class="number5"/></td>
             <td><span class="currencyinput">$<input type="text"  class="number6" name="Price paid" value="" /></span></td>
             <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number7"/></span></td>
-            <td><span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number8" /></span></td>
+            <!-- <td><span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number8" /></span></td> -->
             </tr> <!-- </form> -->
+            <tr>
+              <td>
+                  <select id="dropdown1">
+                  <option value="BTC" selected>Bitcoin</option>
+                  <option value="ETH">Ethereum</option>
+                  <option value="XRP">XRP</option>
+                  <option value="LTC">Litecoin</option>
+                  <option value="EOS">EOS</option>
+                  <option value="BCH">Bitcoin Cash</option>
+                  <option value="XLM">Stellar</option>
+                  <option value="ADA">Cardano</option>
+                  <option value="TRX">Tron</option>
+                </select>
+              </td>  
+                <td><input type="date" id="date1" value="" name="dateBought" /></td>
+                <td><input type="text" value="" name="Quantity bought"  class="number9"/></td>
+                <td><span class="currencyinput">$<input type="text"  class="number10" name="Price paid" value="" /></span></td>
+                <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number11"/></span></td>
+                <!-- <td> <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number12" /></span></td> -->
+              </tr>
+                <!--number (above) if needed -- code min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"-->
+                 <!-- add another row option (JS?) -->
+              <tr>
+              <td><select id="dropdown2">
+                  <option value="BTC" selected>Bitcoin</option>
+                  <option value="ETH">Ethereum</option>
+                  <option value="XRP">XRP</option>
+                  <option value="LTC">Litecoin</option>
+                  <option value="EOS">EOS</option>
+                  <option value="BCH">Bitcoin Cash</option>
+                  <option value="XLM">Stellar</option>
+                  <option value="ADA">Cardano</option>
+                  <option value="TRX">Tron</option>
+                </select>
+              </td>
+              <td><input type="date" id="date1" value="" name="dateBought" /></td>
+              <td><input type="text" value="" name="Quantity bought"  class="number13"/></td>
+              <td><span class="currencyinput">$<input type="text"  class="number14" name="Price paid" value="" /></span></td>
+              <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number15"/></span></td>
+              <!-- <td><span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number16" /></span></td> -->
+              </tr> 
             </table>
         
         </div>
@@ -104,6 +145,33 @@
           </table></div>
         </div> --> 
 
+        <div id="resultsDiv">
+          <h2>Saved Picks</h2>
+          <div><table>
+            <tr>
+              <th>Coin Bought</th>
+                <th>Date Bought</th>
+                <th>How many coins bought</th>
+                <th>Coin price at purchase</th>
+                <th>Total Cost</th>
+                <th>Profit/Loss</th>
+            </tr>
+            <tr>
+                <td><input type="text"  class="" value="" name="" /></td>
+                <td><input type="date" id="date1" value="" name="dateBought" /></td>
+                <td><input type="text"  value="" name="Quantity bought"  class="number13" /></td>
+                <td><input type="text"  class="number14" name="Price paid" value="" /></td>
+                <td><input type="text"  value=""  name="Total Cost" class="number15"/></td>
+                <td><input type="text"  value="" name="Profit/Loss"  class="number16"/></td>
+
+            </tr>
+          </table></div>
+
+
+
+
+        </div>
+
       <!-- footer -->
 
           <footer id="footy">
@@ -118,8 +186,11 @@
                 </div>
                     <div id="ftbox3"><p>Helpful Links <br /></p>
                       <p>API Powered by <a href="https://www.coingecko.com/en" target="_blank">CoinGecko API</a></p></div>
+
           </footer>
-    
+          <div id="footerfinal">© Copyright 2019 CryptoWish Inc. Esq. All Rights Reserved</div>
+
+        </div>  
   
   <script src="./cryptowishmain.js"></script>
   <script>
@@ -127,8 +198,9 @@
 $('#newrow').click(runtask);
 
 function runtask() {
-    $("#myTable > tbody").append("<tr><td>" + '<select id="dropdown2"><option value="BTC" selected>Bitcoin</option><option value="ETH">Ethereum</option><option value="XRP">XRP</option><option value="LTC">Litecoin</option><option value="EOS">EOS</option><option value="BCH">Bitcoin Cash</option><option value="XLM">Stellar</option><option value="ADA">Cardano</option><option value="TRX">Tron</option></select>'  + "</td><td>" + '<input type="date" id="date1" value="" name="dateBought" />' + "</td><td>" + '<input type="text" value="" name="Quantity bought"  class="number1"/>' + "</td><td>" + '<span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span>' + "</td><td>" + '<span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span>' + "</td> + <td>" + '<span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span>' + "</td></tr>");
+    $("#myTable > tbody").append("<tr><td>" + '<select id="dropdown2"><option value="BTC" selected>Bitcoin</option><option value="ETH">Ethereum</option><option value="XRP">XRP</option><option value="LTC">Litecoin</option><option value="EOS">EOS</option><option value="BCH">Bitcoin Cash</option><option value="XLM">Stellar</option><option value="ADA">Cardano</option><option value="TRX">Tron</option></select>'  + "</td><td>" + '<input type="date" id="date1" value="" name="dateBought" />' + "</td><td>" + '<input type="text" value="" name="Quantity bought"  class="number1"/>' + "</td><td>" + '<span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span>' + "</td><td>" + '<span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span>' + "</td> </tr>");
 }
+//+ '<span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span>'
 // trainData.on("child_added", function(childSnapshot, prevChildKey){
 //   $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + "Every " + frequency + " minutes" + "</td><td>" + nextTrainConverted + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 
