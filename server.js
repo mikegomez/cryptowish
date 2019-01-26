@@ -1,4 +1,5 @@
 var express = require("express");
+var favicon = require('express-favicon');
 var bodyParser = require("body-parser");
 var path = require("path");
  
@@ -13,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory to be served
+app.use(favicon(__dirname + '/public/favicon.png'));
+
 app.use(express.static("app/public"));
 
 // app.get("/", function(req, res) {
