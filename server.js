@@ -1,56 +1,30 @@
-var mysql = require('mysql');
-var createConnection = mysql.createConnection ({
-    host: 'localhost',
-    database: 'cryptowish',
-    user: 'root',
-    password: ""
+var express = require("express");
+var bodyParser = require("body-parser");
+var path = require("path");
+ 
 
-});
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = 3000;
 
-// create database
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// createConnection.connect(function(err) {
-//     if(err) throw err;
-//     console.log("connected");
-//         // console.error(err.stack);
-//     // console.log('connection at id:' + createConnection.threadId);
-//     createConnection.query("CREATE DATABASE cryptowish", function (err, result) {
-//         if (err) throw err;
-//         console.log("Database created");
-//       });
-// });
+// Static directory to be served
+app.use(express.static("app/public"));
 
-//create table
-
-createConnection.connect(function(err) {
-    if (err) throw err;
-    console.log('connected');
-
-    // moved columned to first postion
-    var sql = "ALTER TABLE mypicks CHANGE id id INT AUTO_INCREMENT FIRST";
-
-    // create table columns
-    // var sql = "ALTER TABLE mypicks (id INT AUTO_INCREMENT PRIMARY KEY, coinBought VARCHAR(25), dateBought DATE, numCoins INT(15), coinPrice INT(15), totalCost INT(20), profitLoss INT(20))";
-    
-    createConnection.query(sql, function(err, result) {
-        if(err) throw err;
-        console.log(result);
-    });
-});
-
-// insert data into database  
-
-// var sql = "INSERT INTO posts (title, body) VALUES ('Burger King', '1 Birthay St.')";
-// createConnection.query(sql, function(err, result) {
-//     if (err) throw err;
-//    // console.log(result);
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "./app/public/index.html"));
 //   });
 
-// grab info from database populate into terminal
+// Routes
+// =============================================================
+require("./app/routes/api-routes.js")(app);
 
-// createConnection.query('SELECT * FROM `mypicks`', function(err, result, fields) {
-//     if (err) throw err;
-//     console.log(result);
-//   });
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 
-// createConnection.end();
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./crypto.css">
+
+ 
+</head>
+<body id="nighttime">
+
+        <div id="header"><h1>CryptoWish</h1>
+          <button type="button" onclick ="changeBGColor('nighttime')" id="button1"><span id="moon">&#9789</span></button>
+        </div>
+        <div id="headline"><h2>Track all your potential Profits and losses without any of the risk!</h2></div>
+
+        <div id="apicontainer">
+          <!-- <table id="tableName"></table> -->
+            <!-- <div>bird brains</div> -->
+            <!-- <div id="crypto-list"></div>
+            <div id="crypto-list1"></div> -->
+        </div>
+
+      <!-- main container -->
+        
+        <div id="container2">
+            <div id="header2"><h2>My Picks</h2></div>
+        <div id="space">
+        <table id="myTable">
+            <tr>
+                    <!-- <div class="picks1"> -->
+              <th>Coin Bought</th>
+                <th><div>Date Bought</div></th>
+                <th><div>How many coins bought</div></th>
+                <th><div>Coin price at purchase</div></th>
+                <th><div>Total Cost</div></th>
+                <th><div></div></th>
+                <!-- <th><div>Profit/Loss</div></th> -->
+            </tr>    
+        
+        
+              <!-- <form action="" method="POST"> -->
+         
+            <tr>
+            <td>
+                <select id="dropdown1">
+                <option value="BTC" selected>Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="XRP">XRP</option>
+                <option value="LTC">Litecoin</option>
+                <option value="EOS">EOS</option>
+                <option value="BCH">Bitcoin Cash</option>
+                <option value="XLM">Stellar</option>
+                <option value="ADA">Cardano</option>
+                <option value="TRX">Tron</option>
+              </select>
+            </td>  
+              <td><input type="date" id="date1" value="" name="dateBought" /></td>
+              <td><input type="text" value="" name="Quantity bought"  class="number1"/></td>
+              <td><span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span></td>
+              <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span></td>
+              <td><button type="submit" id="save-btn">Save</button></td>
+              <!-- <td> <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span></td> -->
+            </tr>
+              <!--number (above) if needed -- code min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"-->
+               <!-- add another row option (JS?) -->
+             <tr>
+            <td><select id="dropdown2">
+                <option value="BTC" selected>Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="XRP">XRP</option>
+                <option value="LTC">Litecoin</option>
+                <option value="EOS">EOS</option>
+                <option value="BCH">Bitcoin Cash</option>
+                <option value="XLM">Stellar</option>
+                <option value="ADA">Cardano</option>
+                <option value="TRX">Tron</option>
+              </select>
+            </td>
+            <td><input type="date" id="date1" value="" name="dateBought" /></td>
+            <td><input type="text" value="" name="Quantity bought"  class="number5"/></td>
+            <td><span class="currencyinput">$<input type="text"  class="number6" name="Price paid" value="" /></span></td>
+            <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number7"/></span></td>
+            <td><button type="submit" id="save-btn">Save</button></td>
+            <!-- <td><span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number8" /></span></td> -->
+            <!-- </tr> </form> --> -->
+              <tr>
+              <!-- <td>
+                  <select id="dropdown1">
+                  <option value="BTC" selected>Bitcoin</option>
+                  <option value="ETH">Ethereum</option>
+                  <option value="XRP">XRP</option>
+                  <option value="LTC">Litecoin</option>
+                  <option value="EOS">EOS</option>
+                  <option value="BCH">Bitcoin Cash</option>
+                  <option value="XLM">Stellar</option>
+                  <option value="ADA">Cardano</option>
+                  <option value="TRX">Tron</option>
+                </select>
+              </td>  
+                <td><input type="date" id="date1" value="" name="dateBought" /></td>
+                <td><input type="text" value="" name="Quantity bought"  class="number9"/></td>
+                <td><span class="currencyinput">$<input type="text"  class="number10" name="Price paid" value="" /></span></td>
+                <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number11"/></span></td>
+                <td><button type="submit" id="save-btn">Save</button></td> -->
+                <!-- <td> <span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number12" /></span></td> -->
+              <!-- </tr> -->
+                <!--number (above) if needed -- code min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"-->
+                 <!-- add another row option (JS?) -->
+              <!-- <tr>
+              <td><select id="dropdown2">
+                  <option value="BTC" selected>Bitcoin</option>
+                  <option value="ETH">Ethereum</option>
+                  <option value="XRP">XRP</option>
+                  <option value="LTC">Litecoin</option>
+                  <option value="EOS">EOS</option>
+                  <option value="BCH">Bitcoin Cash</option>
+                  <option value="XLM">Stellar</option>
+                  <option value="ADA">Cardano</option>
+                  <option value="TRX">Tron</option>
+                </select>
+              </td>
+              <td><input type="date" id="date1" value="" name="dateBought" /></td>
+              <td><input type="text" value="" name="Quantity bought"  class="number13"/></td>
+              <td><span class="currencyinput">$<input type="text"  class="number14" name="Price paid" value="" /></span></td>
+              <td><span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number15"/></span></td>
+              <td><button type="submit" id="save-btn">Save</button></td>
+              <!-- <td><span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number16" /></span></td> -->
+              <!-- </tr>   -->
+            </table>
+        
+        </div>
+          <!-- add new row section -->
+          <div><button type="submit" id="newrow">Add more coins</button></div>
+         <!-- <div id="container3">  -->
+          <!-- <div><table id="myTable">
+            <tr>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+                    <td>Row1</td>
+            </tr>         
+          </table></div>
+        </div> --> 
+
+        <div id="resultsDiv">
+          <h2>Saved Picks</h2>
+          <div><table>
+            <tr>
+              <th>Coin Bought</th>
+                <th>Date Bought</th>
+                <th>How many coins bought</th>
+                <th>Coin price at purchase</th>
+                <th>Total Cost</th>
+                <th>Profit/Loss</th>
+            </tr>
+            <tr>
+                <td><input type="text"  class="" value="" name="" /></td>
+                <td><input type="date" id="date1" value="" name="dateBought" /></td>
+                <td><input type="text"  value="" name="Quantity bought"  class="number13" /></td>
+                <td><input type="text"  class="number14" name="Price paid" value="" /></td>
+                <td><input type="text"  value=""  name="Total Cost" class="number15"/></td>
+                <td><input type="text"  value="" name="Profit/Loss"  class="number16"/></td>
+
+            </tr>
+          </table></div>
+
+        </div>
+
+      <!-- footer -->
+
+          <footer id="footy">
+            <div id="ftbox1">CryptoWish <br /><br />
+              <p>CryptoWish is a fun way to track all your 'potential profits and losses without any of the actual risk! That way you can invest and know that you will not lose any money, the only downfall is...you will not also make any money. <br /> We are a fun new website that brings entertainment and investment all into one! </p><p>Good Luck and Happy Trading!!!</p></div>
+                <div id="ftbox2"><p>Donations <br /></p>
+                  <p><img src="./assets/images/index.png" id="btcdonate"><a href="https://www.blockchain.com/btc/address/1DbMnJedLp9oyZK83HDjCbWD2CJiAFRqNV" target="blank">1DbMnJedLp9oyZK83HDjCbWD2CJiAFRqNV</a>(BTC)</p>
+                  <p><img src="./assets/images/ethereum.png" id="btcdonate"><a href="https://etherscan.io/address/0x3aa0be33a6e4b2bebe44455fcdb3888f92e1471b" target="blank">0x3aa0be33a6e4b2bebe44455fcdb3888f92e1471b</a></p>
+                  <p></p><img src="./assets/images/litecoin.png" id="btcdonate"> <a href="https://live.blockcypher.com/ltc/address/LT6GpHQ2c9JkUJwZBniWsWC3WPXYrG1xUv" target="blank">LT6GpHQ2c9JkUJwZBniWsWC3WPXYrG1xUv</a> (LTC)</p>
+                  <p></p><img src="./assets/images/bitcoin_cash.png" id="btcdonate"><a href="https://blockchair.com/bitcoin-cash/address/rPVMhWBsfF9iMXYj3aAzJVkPDTFNSyWdKy" target="blank"> rPVMhWBsfF9iMXYj3aAzJVkPDTFNSyWdKy</a> (BCH)</p>
+                  <p></p><img src="./assets/images/circle-zcash-color.png" id="btcdonate"><a href="./assets/images/downloadzcash.png" target="blank"> t1UFb7HEmLQHmbXkvvwWTzQssZKiGoLFsku</a> (ZEC)</p>
+                </div>
+                    <div id="ftbox3"><p>Helpful Links <br /></p>
+                      <p>API Powered by <a href="https://www.coingecko.com/en" target="_blank">CoinGecko API</a></p></div>
+
+          </footer>
+          <div id="footerfinal">© Copyright 2019 CryptoWish Inc. Esq. All Rights Reserved</div>
+
+        </div>  
+  
+  <script src="./cryptowishmain.js"></script>
+ 
+</body>
+</html>
+   
