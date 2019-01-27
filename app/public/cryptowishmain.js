@@ -16,7 +16,7 @@ function runtask() {
       };
       console.log(newPick);
 
-$.post("/api/new", newPick)
+$.post("/api", newPick)
 
   .then(function() {
     var row = $("<table><tr>");
