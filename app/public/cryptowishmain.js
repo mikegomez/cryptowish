@@ -30,6 +30,7 @@ $.post("/api/new", newPick)
       $("#resultsDiv").append(row);
 
     });
+    
     $(".number1").val("");
     $(".number2").val("");
     $(".number3").val("");
