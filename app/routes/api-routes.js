@@ -20,7 +20,7 @@ module.exports = function(app) {
   });
 
   // Add a chirp
-  app.post("/api/new", function(req, res) {
+  app.post("/api", function(req, res) {
     console.log("Chirp Data:");
     console.log(req.body);
 

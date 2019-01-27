@@ -16,7 +16,9 @@ function runtask() {
       };
       console.log(newPick);
 
-$.post("/api/new", newPick, function() {
+$.post("/api/new", newPick)
+
+  .then(function() {
     var row = $("<table><tr>");
       // row.addClass("chirp");
 
