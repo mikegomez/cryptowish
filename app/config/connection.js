@@ -1,22 +1,39 @@
 var mysql = require('mysql');
-var connection = mysql.createConnection ({
-    host: 'localhost',
-    port: '3306',
-    database: 'cTest',
-    user: 'root',
-    password: ""
+// var connection = mysql.createConnection ({
+//     host: 'localhost',
+//     port: '3306',
+//     database: 'cTest',
+//     user: 'root',
+//     password: ""
 
-});
+// });
 
-// Connect to the database
-connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
-    console.log("connected as id " + connection.threadId);
-  });
+// // Connect to the database
+// connection.connect(function(err) {
+//     if (err) {
+//       console.error("error connecting: " + err.stack);
+//       return;
+//     }
+//     console.log("connected as id " + connection.threadId);
+//   });
+
+var connection;
+if(process.env.JAWSDB_URL) {
+
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
   
+    connection = mysql.createConnection({
+      port: 3306,
+      host: "a5s42n4idx9husyc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+      user: "cjmz51y8lg0frvgf",
+      password: "mwlgzx172y9g59zj",
+      database: "ua62tbk38r4j3hkc",
+    });
+};
+
+
+
   // Export connection
   module.exports = connection;
 
