@@ -1,13 +1,15 @@
 $('#newrow').click(runtask);
 
 function runtask() {
-    $("#myTable > tbody").append("<tr><td>" + '<select id="dropdown2"><option value="BTC" selected>Bitcoin</option><option value="ETH">Ethereum</option><option value="XRP">XRP</option><option value="LTC">Litecoin</option><option value="EOS">EOS</option><option value="BCH">Bitcoin Cash</option><option value="XLM">Stellar</option><option value="ADA">Cardano</option><option value="TRX">Tron</option></select>'  + "</td><td>" + '<input type="date" id="date1" value="" name="dateBought" />' + "</td><td>" + '<input type="text" value="" name="Quantity bought"  class="number1"/>' + "</td><td>" + '<span class="currencyinput">$<input type="text"  class="number2" name="Price paid" value="" /></span>' + "</td><td>" + '<span class="currencyinput">$<input type="text" value=""  name="Total Cost" class="number3"/></span>' + "</td><td><button type=\"submit\" id=\"save-btn\">" + 'Save' + "</button></td>" + "</tr>");
+    $("#myTable > tbody").append("<tr><td>" + '<select id="dropdown2"><option value="BTC" selected>Bitcoin</option><option value="ETH">Ethereum</option><option value="XRP">XRP</option><option value="LTC">Litecoin</option><option value="EOS">EOS</option><option value="BCH">Bitcoin Cash</option><option value="XLM">Stellar</option><option value="ADA">Cardano</option><option value="TRX">Tron</option></select>'  + "</td><td>" + '<input type="date" id="date1" value="" name="dateBought" />' + "</td><td>" + '<input type="text" value="" name="Quantity bought"  class="number1"/>' + "</td><td>" + '<input type="text"  class="number2" name="Price paid" value="" />' + "</td><td>" + '<input type="text" value=""  name="Total Cost" class="number3"/>' + "</td><td><button type=\"submit\" id=\"save-btn\">" + 'Save' + "</button></td>" + "</tr>");
 }
 
 
  $("#save-btn").on("click", function(event) {
       event.preventDefault();
       var newPick = {
+        coinz: $("#dropdown1").val().trim(),
+        dates: $("#date1").val().trim(),
         name: $(".number1").val().trim(),
         role: $(".number2").val().trim(),
         // date: moment().format("YYYY-MM-DD HH:mm:ss"),
@@ -22,7 +24,7 @@ $.post("/api", newPick)
     var row = $("<table><tr>");
       // row.addClass("chirp");
 
-      row.append("<td>" + newPick.name + "</td><td>" + newPick.role + "</td><td>" + newPick.age + " chirped: </td></table>");
+      row.append("<td class='newRowTable'>" + newPick.coinz + "</td><td class='newRowTable'>" + newPick.dates + "</td><td class='newRowTable'>" + newPick.name + "</td><td class='newRowTable'>" + newPick.role + "</td><td class='newRowTable'>" + newPick.age + "</td><td class='newRowTable'>" + newPick.profit + "</td></table>");
       // row.append("<p>"  "</p>");
       // row.append("<p>" +  + "</p>");
       // row.append("<p>At " + moment(newPick.date).format("h:mma on dddd") + "</p>");
@@ -31,6 +33,8 @@ $.post("/api", newPick)
 
     });
 
+    $("#dropdown1").val("");
+    $("#date1").val("");
     $(".number1").val("");
     $(".number2").val("");
     $(".number3").val("");

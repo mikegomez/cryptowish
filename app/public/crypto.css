@@ -11,8 +11,10 @@ input {
 } */
 
 table, td {
-    border: 1px solid rgb(3, 253, 23);
-    width: 100%
+    border: 1px solid rgb(163, 179, 164);
+    width: 100%;
+    padding: 5px;
+    table-layout: fixed
     /* height: 15px;
     width: 15px */
   }
@@ -76,12 +78,12 @@ h1, h2 {
 }
 
 #date1 {
-    width: 150px;
+    width: auto;
 }
 
 #dropdown1 {
     width: 150px;
-    margin-top: 25px;
+    /* margin-top: 25px; */
     margin-left: 15px;
 }
 
@@ -92,6 +94,9 @@ h1, h2 {
     margin-left: 15px;
 }
 
+/* #firstCell {
+    width: 400px;
+} */
 
 #footy {
     font-size: 16px;
@@ -172,6 +177,14 @@ h1, h2 {
     font-size: 10pt;
 }
 
+.newRowTable {
+    background-color: white;
+    color: black;
+    padding: 10px;
+
+}
+
+
 #nightmode {
     /* display: inline-block;
     vertical-align: top;     */
@@ -233,6 +246,11 @@ h1, h2 {
 #resultsTable {
     width: 100px;   
 }
+
+#save-btn {
+    width: 100px;
+}
+
 
 #space {
     /* margin-top: 200px; */
