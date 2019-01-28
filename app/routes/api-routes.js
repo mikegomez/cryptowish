@@ -24,9 +24,9 @@ module.exports = function(app) {
     console.log("Chirp Data:");
     console.log(req.body);
 
-    var dbQuery = "INSERT INTO cripys (name, role, age) VALUES (?,?,?)";
+    var dbQuery = "INSERT INTO cripys (coinz, dates, name, role, age) VALUES (?,?,?,?,?)";
 
-    connection.query(dbQuery, [req.body.name, req.body.role, req.body.age], function(err, result) {
+    connection.query(dbQuery, [req.body.coinz, req.body.dates, req.body.name, req.body.role, req.body.age], function(err, result) {
       if (err) throw err;
       console.log("Chirp Successfully Saved!");
       res.end();
