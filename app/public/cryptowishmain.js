@@ -24,7 +24,7 @@ $.post("/api", newPick)
     var row = $("<table><tr>");
       // row.addClass("chirp");
 
-      row.append("<td class='newRowTable'>" + newPick.coinz + "</td><td class='newRowTable'>" + newPick.dates + "</td><td class='newRowTable'>" + newPick.name + "</td><td class='newRowTable'>" + newPick.role + "</td><td class='newRowTable'>" + newPick.age + "</td><td class='newRowTable'>" + newPick.profit + "</td></table>");
+      row.append("<td class='newRowTable'>" + newPick.coinz + "</td><td class='newRowTable'>" + newPick.dates + "</td><td class='newRowTable'>" + newPick.name + "</td><td class='newRowTable'>" + newPick.role + "</td><td class='newRowTable'>" + newPick.age + "</td><td class='newRowTable'>" + "</td></table>");
       // row.append("<p>"  "</p>");
       // row.append("<p>" +  + "</p>");
       // row.append("<p>At " + moment(newPick.date).format("h:mma on dddd") + "</p>");
