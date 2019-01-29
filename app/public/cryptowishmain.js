@@ -5,53 +5,38 @@ function runtask() {
 }
 
 
- $("#save-btn").on("click", function(event) {
-      event.preventDefault();
-      var newPick = {
-        coinz: $("#dropdown1").val().trim(),
-        dates: $("#date1").val().trim(),
-        name: $(".number1").val().trim(),
-        role: $(".number2").val().trim(),
-        // date: moment().format("YYYY-MM-DD HH:mm:ss"),
-        age: $(".number3").val().trim()
+//  $("#save-btn").on("click", function(event) {
+//       event.preventDefault();
+//       var newPick = {
+//         coinz: $("#dropdown1").val().trim(),
+//         dates: $("#date1").val().trim(),
+//         name: $(".number1").val().trim(),
+//         role: $(".number2").val().trim(),
+//         // date: moment().format("YYYY-MM-DD HH:mm:ss"),
+//         age: $(".number3").val().trim()
        
-      };
-      console.log(newPick);
+//       };
+//       console.log(newPick);
 
-$.post("/api", newPick)
+// $.post("/api", newPick)
 
-  .then(function() {
-    var row = $("<table><tr>");
-      // row.addClass("chirp");
+//   .then(function() {
+//     var row = $("<table><tr>");
+//       // row.addClass("chirp");
 
-      row.append("<td class='newRowTable'>" + newPick.coinz + "</td><td class='newRowTable'>" + newPick.dates + "</td><td class='newRowTable'>" + newPick.name + "</td><td class='newRowTable'>" + newPick.role + "</td><td class='newRowTable'>" + newPick.age + "</td><td class='newRowTable'>" + "</td></table>");
-      // row.append("<p>"  "</p>");
-      // row.append("<p>" +  + "</p>");
-      // row.append("<p>At " + moment(newPick.date).format("h:mma on dddd") + "</p>");
+//       row.append("<td class='newRowTable'>" + newPick.coinz + "</td><td class='newRowTable'>" + newPick.dates + "</td><td class='newRowTable'>" + newPick.name + "</td><td class='newRowTable'>" + newPick.role + "</td><td class='newRowTable'>" + newPick.age + "</td><td class='newRowTable'>" + newPick.profit + "</td></table>");
+    
+//       $("#resultsDiv").append(row);
 
-      $("#resultsDiv").append(row);
+//     });
 
-    });
-
-    $("#dropdown1").val("");
-    $("#date1").val("");
-    $(".number1").val("");
-    $(".number2").val("");
-    $(".number3").val("");
+//     $("#dropdown1").val("");
+//     $("#date1").val("");
+//     $(".number1").val("");
+//     $(".number2").val("");
+//     $(".number3").val("");
   
-    });
-      // Question: What does this code do??
-    //   $.post("/api", newPick)
-    //     .then(function(data) {
-    //       console.log("index.html", data);
-    //       alert("Adding character...");
-    //     });
-    // });
-//+ '<span class="currencyinput">$<input type="text" value="" name="Profit/Loss"  class="number4" /></span>'
-// trainData.on("child_added", function(childSnapshot, prevChildKey){
-//   $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + "Every " + frequency + " minutes" + "</td><td>" + nextTrainConverted + "</td><td>" + tMinutesTillTrain + "</td></tr>");
-
-// });
+//     });
 
 // function addnewrow() {
 //   let table =  document.getElementById('myTable');
@@ -85,7 +70,7 @@ $.post("/api", newPick)
 
 
       $(document).ready(function() {
-  // $.getJSON(url, callback);
+  // $.getJSON(url, callback); keep this line commented out
 //   $.getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=3&page=1', function(json) {
 //     tableGenerator('#tableName', json);
 //   });
@@ -115,6 +100,40 @@ var ajaxResp = $.ajax({
   // var lap = newsObject.market_cap_rank;
 
 //document.getElementById("apicontainer").innerHTML = lng + ", " + imgs + ", " + lop + ", " + lap;
+$("#save-btn").on("click", function(event) {
+  event.preventDefault();
+  var newPick = {
+    coinz: $("#dropdown1").val().trim(),
+    dates: $("#date1").val().trim(),
+    name: $(".number1").val().trim(),
+    role: $(".number2").val().trim(),
+    age: $(".number3").val().trim(),
+    calc: $(".number1").val() * (item.current_price ) - $(".number3").val()
+   
+  };
+  console.log(newPick);
+
+$.post("/api", newPick)
+
+.then(function() {
+
+var row = $("<table><tr>");
+  // row.addClass("chirp");
+
+  row.append("<td class='newRowTable'>" + newPick.coinz + "</td><td class='newRowTable'>" + newPick.dates + "</td><td class='newRowTable'>" + newPick.name + "</td><td class='newRowTable'>" + newPick.role + "</td><td class='newRowTable'>" + newPick.age + "</td><td class='newRowTable'>" + newPick.calc + "</td></table>");
+
+  $("#resultsDiv").append(row);
+
+});
+
+$("#dropdown1").val("");
+$("#date1").val("");
+$(".number1").val("");
+$(".number2").val("");
+$(".number3").val("");
+
+});
+
 
   }); 
   
@@ -217,24 +236,11 @@ $(".number5, .number6").bind('change', function(){
       $(".number7").val($(".number5").val() * $(".number6").val());
 });
 
-// add new row functionality
-// document.getElementById('getMessage').onclick=function(){
-//             req=new XMLHttpRequest();
-//             req.open("GET",'/json/cats.json',true);
-//             req.send();
-//             req.onload=function(){
-//               json=JSON.parse(req.responseText);
-//               var html = "";
-//               json.forEach(function(val) {
-//                 html += "<div class = 'cat'>";
-//                 // Add your code below this line
-//                 html += "<img src = '" + val.imageLink + "' " + "alt='" + val.altText + "'>";
-                
-//                 // Add your code above this line
-//                 html += "</div><br>";
-//               });
-//               document.getElementsByClassName('message')[0].innerHTML=html;
-//             }; 
+
+function changeBGColor(color) {
+  let colorprop = document.getElementById(color);
+  colorprop.className = 'toggled' == colorprop.className ? '' : 'toggled';
+}
 
 })
  
@@ -319,8 +325,5 @@ $(".number5, .number6").bind('change', function(){
   //    };
   // });
 
-function changeBGColor(color) {
-  let colorprop = document.getElementById(color);
-  colorprop.className = 'toggled' == colorprop.className ? '' : 'toggled';
-}
+
 
